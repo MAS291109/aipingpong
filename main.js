@@ -1,6 +1,4 @@
-rightwristX = "";
-rightwristY = "";
-rightWristScore = "";
+
 /*created by prashant shukla */
 
 var paddle2 =10,paddle1=10;
@@ -22,6 +20,12 @@ var ball = {
     dx:3,
     dy:3
 }
+
+rightwristX = "";
+rightwristY = "";
+rightWristScore = "";
+
+game_status = "";
 
 function setup(){
    var canvas =  createCanvas(700,600);
@@ -46,9 +50,15 @@ function gotPoses(results){
     console.log("rightwristX = "+rightwristX+" ,rightwristY = "+rightwristY+" ,rightWristScore = "+rightWristScore);
   }
 }
+function start()
+{
+   game_status = "start";
+   document.getElementById("status").innerHTML = "Game Is Loaded";
+}
 
 function draw(){
-
+  if(game_status == "start")
+  {
  background(0); 
  image(video,0,0,700,600);
 
@@ -93,6 +103,7 @@ function draw(){
       stroke("#FF0000");
       circle(rightwristX,rightwristY,20);
     }
+  }
 }
 
 
